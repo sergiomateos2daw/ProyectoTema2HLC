@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detalles de <b><a style="color: red;">{{ document.data.titulo }}</a> </b></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list lines="none">
+    <ion-item>
+      <ion-label>Título:</ion-label>
+      <ion-input value="{{ document.data.titulo }}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Género:</ion-label>
+      <ion-input value="{{ document.data.genero }}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Director:</ion-label>
+      <ion-input value="{{ document.data.director }}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Fecha:</ion-label>
+      <ion-input value="{{ document.data.fecha }}"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button color="danger" (click)="clickBotonEliminar()"><ion-icon name="trash-outline"></ion-icon> Eliminar</ion-button>
+  <ion-button color="success" (click)="clicBotonModificar()"><ion-icon name="pencil-outline"></ion-icon> Modificar</ion-button>
+</ion-content>

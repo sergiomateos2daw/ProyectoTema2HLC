@@ -34,10 +34,11 @@
       <ion-input [(ngModel)]="tareaEditando.fecha"></ion-input>
     </ion-item>
   
-    <ion-button (click)="clickBotonInsertar()">Añadir Película</ion-button>
+    <ion-button (click)="clickBotonInsertar()"><ion-icon name="add-circle"></ion-icon> Añadir</ion-button>
+    <!-- <ion-button color="danger" (click)="clickBotonEliminar()"><ion-icon name="trash-bin"></ion-icon> Eliminar</ion-button> -->
     <h1>LISTA DE PEÍCULAS</h1>
     <ion-list>
-      <ion-item *ngFor="let documentTarea of arrayColeccionTareas">
+      <ion-item *ngFor="let documentTarea of arrayColeccionTareas" (click)="selecTarea(documentTarea)">
         <ion-grid>
           <ion-row>
             <h2>{{ documentTarea.data.titulo }}</h2>

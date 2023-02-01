@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Tarea } from '../tarea';
 import { FirestoreService } from '../firestore.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,11 @@ export class HomePage {
     id: "",
     data: {} as Tarea
   }];
-  constructor(private firestoreService: FirestoreService) {
+  document: any = {
+    id: "",
+    data: {} as Tarea
+  };
+  constructor(private firestoreService: FirestoreService, private router: Router) {
     // Crear una tarea vacia al empezar
     this.tareaEditando = {} as Tarea;
 
@@ -29,6 +34,34 @@ export class HomePage {
     },(error) =>{
       console.error(error)
     });
+  }
+
+  idTareaSelec: string;
+
+  selecTarea(tareaSelec) {
+    console.log("Tarea seleccionada: ");
+    console.log(tareaSelec);
+    this.idTareaSelec = tareaSelec.id;
+    
+    this.router.navigate(['/detalle', this.idTareaSelec]);
+  }
+
+  clickBotonEliminar() {
+    this.firestoreService.borrar("datos", this.idTareaSelec).then(() => {
+      // Actualizar la lista completa
+      this.obtenerListaTareas();
+      // Limpiar datos de pantalla
+      this.tareaEditando = {} as Tarea;
+    })
+  }
+  clicBotonModificar() {
+    console.log(this.idTareaSelec);
+    this.firestoreService.actualizar("datos", this.idTareaSelec, this.tareaEditando).then(() => {
+      // Actualizar la lista completa
+      this.obtenerListaTareas();
+      // Limpiar datos de pantalla
+      this.tareaEditando = {} as Tarea;
+    })
   }
 
   obtenerListaTareas(){
