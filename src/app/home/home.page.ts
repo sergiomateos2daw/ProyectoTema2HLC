@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class HomePage {
 
   tareaEditando: Tarea;
+  
   arrayColeccionTareas: any = [{
     id: "",
     data: {} as Tarea
@@ -42,7 +43,7 @@ export class HomePage {
     console.log("Tarea seleccionada: ");
     console.log(tareaSelec);
     this.idTareaSelec = tareaSelec.id;
-    
+    console.log(tareaSelec.id)
     this.router.navigate(['/detalle', this.idTareaSelec]);
   }
 
