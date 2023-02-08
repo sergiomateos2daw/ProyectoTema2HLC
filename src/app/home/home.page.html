@@ -8,13 +8,13 @@
 
 <ion-content [fullscreen]="true">
   <ion-header [translucent]="true">
+    <ion-fab-button (click)="clickBotonNuevo()"><ion-icon name="add"></ion-icon></ion-fab-button>
     <ion-toolbar>
       <ion-title>
         AppBD
       </ion-title>
     </ion-toolbar>
   </ion-header>
-  
   <ion-content [fullscreen]="true">
     <ion-item>
       <ion-label>Título</ion-label>
@@ -33,9 +33,6 @@
       <ion-label>Fecha</ion-label>
       <ion-input [(ngModel)]="tareaEditando.fecha"></ion-input>
     </ion-item>
-  
-    <ion-button (click)="clickBotonInsertar()"><ion-icon name="add-circle"></ion-icon> Añadir</ion-button>
-    <!-- <ion-button color="danger" (click)="clickBotonEliminar()"><ion-icon name="trash-bin"></ion-icon> Eliminar</ion-button> -->
     <h1>LISTA DE PEÍCULAS</h1>
     <ion-list>
       <ion-item *ngFor="let documentTarea of arrayColeccionTareas" (click)="selecTarea(documentTarea)">

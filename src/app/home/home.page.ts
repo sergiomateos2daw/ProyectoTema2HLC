@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class HomePage {
 
   tareaEditando: Tarea;
-  
+
   arrayColeccionTareas: any = [{
     id: "",
     data: {} as Tarea
@@ -28,6 +28,16 @@ export class HomePage {
   }
 
   clickBotonInsertar(){
+    this.firestoreService.insertar("datos",this.tareaEditando)
+    .then(()=>{
+      console.log("Tarea creada correctamente");
+      this.tareaEditando = {} as Tarea;
+    },(error) =>{
+      console.error(error)
+    });
+  }
+
+  clickBotonNuevo(){
     this.firestoreService.insertar("datos",this.tareaEditando)
     .then(()=>{
       console.log("Tarea creada correctamente");
