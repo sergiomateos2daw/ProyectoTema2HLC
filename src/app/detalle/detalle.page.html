@@ -25,5 +25,5 @@
     </ion-item>
   </ion-list>
   <ion-button color="danger" (click)="clickBotonEliminar()"><ion-icon name="trash-outline"></ion-icon> Eliminar</ion-button>
-  <ion-button color="success" (click)="clicBotonModificar()"><ion-icon name="pencil-outline"></ion-icon> Modificar</ion-button>
+  <ion-button (click)="clicBotonModificar()">{{ isNew ? 'Guardar' : 'Modificar' }}</ion-button>
 </ion-content>

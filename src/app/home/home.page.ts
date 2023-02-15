@@ -38,13 +38,7 @@ export class HomePage {
   }
 
   clickBotonNuevo(){
-    this.firestoreService.insertar("datos",this.tareaEditando)
-    .then(()=>{
-      console.log("Tarea creada correctamente");
-      this.tareaEditando = {} as Tarea;
-    },(error) =>{
-      console.error(error)
-    });
+    this.router.navigate(['/detalle', "nuevo"]);
   }
 
   idTareaSelec: string;

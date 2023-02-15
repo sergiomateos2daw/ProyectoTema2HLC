@@ -11,28 +11,11 @@
     <ion-fab-button (click)="clickBotonNuevo()"><ion-icon name="add"></ion-icon></ion-fab-button>
     <ion-toolbar>
       <ion-title>
-        AppBD
+        Inicio
       </ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content [fullscreen]="true">
-    <ion-item>
-      <ion-label>Título</ion-label>
-      <ion-input [(ngModel)]="tareaEditando.titulo"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Autor</ion-label>
-      <ion-input [(ngModel)]="tareaEditando.director"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Genero</ion-label>
-      <ion-input [(ngModel)]="tareaEditando.genero"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Fecha</ion-label>
-      <ion-input [(ngModel)]="tareaEditando.fecha"></ion-input>
-    </ion-item>
     <h1>LISTA DE PEÍCULAS</h1>
     <ion-list>
       <ion-item *ngFor="let documentTarea of arrayColeccionTareas" (click)="selecTarea(documentTarea)">
