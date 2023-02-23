@@ -1,0 +1,14 @@
+#caratula{
+    border: solid black 2px;
+    margin-left: 2%;
+    
+    max-width: 150px;
+    max-height: 5   50px;
+}
+
+@media (min-width: 1024px) {
+    #botonSubirImagen, #botonSubirCaratula{
+        display: none;
+    }
+  }
+  

@@ -23,7 +23,14 @@
       <ion-label>Fecha:</ion-label>
       <ion-input [(ngModel)]="document.data.fecha"></ion-input>
     </ion-item>
+    <ion-item>
+      <ion-label>Carátula:</ion-label>
+      
+    </ion-item>
+    <img id="caratula" src='{{ document.data.imagen }}'>
   </ion-list>
-  <ion-button color="danger" (click)="clickBotonEliminar()"><ion-icon name="trash-outline"></ion-icon> Eliminar</ion-button>
+  <ion-button *ngIf="!isNew" color="danger" (click)="clickBotonEliminar()"><ion-icon name="trash-outline"></ion-icon> Eliminar</ion-button>
   <ion-button (click)="clicBotonModificar()">{{ isNew ? 'Guardar' : 'Modificar' }}</ion-button>
+  <ion-button id="botonSubirImagen" *ngIf="isNew" color="success" (click)="uploadImagePicker()"><ion-icon name="image-outline"></ion-icon> Subir Carátula</ion-button>
+  <ion-button id="botonSubirCaratula" *ngIf="!isNew" color="success" (click)="uploadImagePicker()"><ion-icon name="image-outline"></ion-icon> Cambiar Carátula</ion-button>
 </ion-content>
