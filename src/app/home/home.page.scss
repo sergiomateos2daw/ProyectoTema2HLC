@@ -31,3 +31,21 @@ ion-fab-button {
   bottom: 20px;
   right: 20px;
 }
+
+.llamada{ 
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 300%;
+  position: fixed;
+  right: 80px;
+  --background: lightblue;
+}
+
+.compartir{ 
+  margin-top: 10px;
+  margin-right: 80px;
+  font-size: 300%;
+  position: fixed;
+  right: 80px;
+  --background: lightblue;
+}

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Tarea } from '../tarea';
 import { FirestoreService } from '../firestore.service';
 import { Router } from '@angular/router';
+import { CallNumber } from '@awesome-cordova-plugins/call-number/ngx';
+import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +22,7 @@ export class HomePage {
     id: "",
     data: {} as Tarea
   };
-  constructor(private firestoreService: FirestoreService, private router: Router) {
+  constructor(private firestoreService: FirestoreService, private router: Router, private callNumber: CallNumber, private socialSharing: SocialSharing) {
     // Crear una tarea vacia al empezar
     this.tareaEditando = {} as Tarea;
 
@@ -80,5 +82,26 @@ export class HomePage {
       })
     }
     )
+  }
+
+  llamar(){
+
+    this.callNumber.callNumber("651065453", true)
+    .then(res => console.log('Llamada realizada', res))
+    .catch(err => console.log('Error en realizar la llamada', err));
+  }
+  
+  compartir() {
+    const options = {
+      message: 'Hola esto es compartir con SocialSharing',
+      chooserTitle: 'Compartir con...'
+    };
+
+    this.socialSharing.shareWithOptions(options)
+      .then(() => {
+        console.log('Mensaje compartido correctamente');
+      }).catch((error) => {
+        console.log('Error al compartir el mensaje: ', error);
+      });
   }
 }

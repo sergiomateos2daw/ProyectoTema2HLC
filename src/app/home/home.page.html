@@ -17,6 +17,10 @@
 <ion-content [fullscreen]="true">
   <ion-header [translucent]="true">
     <ion-fab-button (click)="clickBotonNuevo()"><ion-icon name="add"></ion-icon></ion-fab-button>
+    <ion-fab-button (click)="llamar()" class="llamada"><ion-icon name="call"></ion-icon></ion-fab-button>
+    <ion-fab-button (click)="compartir()" id="share" class="compartir">
+      <ion-icon name="share"></ion-icon>
+    </ion-fab-button>
     <ion-toolbar>
       <ion-title>
         Listado de peliculas
